@@ -4,4 +4,4 @@ class stick:
         pass
 
     def throw():
-        
+        pass
