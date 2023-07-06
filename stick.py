@@ -1,11 +1,10 @@
 import random
 
 
-class stick:
-    def __init__(self) -> None:
-        self.outcome = {1: "도", 2: "개", 3: "걸", 4: "윷", 5: "모"}
+class Stick:
+    outcome = {1: "도", 2: "개", 3: "걸", 4: "윷", 5: "모"}
 
     @staticmethod
-    def throw(self):
+    def throw():
         distance = random.randint(1, 5)
-        return self.outcome[distance]
+        return Stick.outcome[distance]
