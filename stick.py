@@ -2,7 +2,7 @@ import random
 
 
 class Stick:
-    outcome = {1: "도", 2: "개", 3: "걸", 4: "윷", 5: "모"}
+    outcome = {1: "do", 2: "ge", 3: "Gurl", 4: "yot", 5: "mo"}
 
     @staticmethod
     def throw():

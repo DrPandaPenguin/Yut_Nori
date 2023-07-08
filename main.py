@@ -4,26 +4,23 @@ pygame.init()
 
 # Set up some constants
 WIDTH, HEIGHT = 800, 600
-FPS = 60
-
+FPS = 10
+font = pygame.font.Font(None, 32)
 # Set up the display
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 WHITE =(255,244,244)
 BLACK =(222,0,0)
+
 def draw_screen():
     screen.fill(WHITE)
-    font = pygame.font.Font(None, 32)
-
-# Create a surface with text on it
-# The arguments are the text string and anti-aliasing,
-        # and the color of the text
-    
-    throw_result = Stick.throw()    
-    text_surface = font.render(str(throw_result), True, BLACK)
-    screen.blit(text_surface, (20, 20))  # The tuple (20, 20) is the position
-
     pygame.display.flip()
+
+def write_screen(word,postions):
+    text_surface = font.render(str(word), True, BLACK)
+    screen.blit(text_surface, postions)  # The tuple (20, 20) is the position
     pygame.display.update()
+
+
 
 def main():
     # Set up the game loop
@@ -31,17 +28,21 @@ def main():
     while running:
         # Limit the frame rate to FPS
         pygame.time.Clock().tick(FPS)
+        draw_screen()
 
         # Handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                throw_result = Stick.throw()
+                write_screen(throw_result,(20,20))
 
-        # Update the game state
 
-        # Draw the game state to the screen
-        # pygame.display.flip()
-        draw_screen()
+
+
+
+    # 버튼으로 계속 누를수있도록 해보기
 
 
     pygame.quit()
