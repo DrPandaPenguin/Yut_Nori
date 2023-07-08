@@ -1,4 +1,5 @@
 import pygame
+import Class_player
 from stick import Stick 
 pygame.init()
 
@@ -22,7 +23,13 @@ def write_screen(word,postions):
 
 
 
+
 def main():
+    #initialize player 
+    p1 = Class_player()
+    p2 = Class_player()
+
+
     # Set up the game loop
     running = True
     while running:
